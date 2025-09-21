@@ -69,7 +69,65 @@
                                 </div>
                             </div>
                             </div>
-                        <a class="btn btn-primary py-2 px-4 ml-auto d-none d-lg-block" href="contact.html" style="font-size: medium;">Kontak</a>
+                        <button class="btn btn-primary py-2 px-4 ml-auto d-none d-lg-block" data-toggle="modal" data-target="#kontakModal" style="font-size: medium;">Kontak</button>
+<!-- Modal Kontak Start -->
+<div class="modal fade" id="kontakModal" tabindex="-1" role="dialog" aria-labelledby="kontakModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="kontakModalLabel">Form Kontak</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="formKontak">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="nama">Nama</label>
+                        <input type="text" class="form-control" id="nama" name="nama" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pesan">Pesan</label>
+                        <textarea class="form-control" id="pesan" name="pesan" rows="3" required></textarea>
+                    </div>
+                    <div id="kontakAlert" style="display:none;"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-primary">Kirim</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal Kontak End -->
+<script>
+// Ganti URL_SCRIPT dengan URL Web Apps Script Google Anda
+const scriptURL = 'https://script.google.com/macros/s/AKfycbyTmHYL19LIyzaqyBTsGRJMvhJlTTdsu-BqrbEWXUDm9tfk7KXLhVOL2oMGSI0G6hF7Cw/exec';
+const form = document.getElementById('formKontak');
+const alertBox = document.getElementById('kontakAlert');
+if(form) {
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => {
+                alertBox.style.display = 'block';
+                alertBox.className = 'alert alert-success';
+                alertBox.innerText = 'Pesan berhasil dikirim!';
+                form.reset();
+            })
+            .catch(error => {
+                alertBox.style.display = 'block';
+                alertBox.className = 'alert alert-danger';
+                alertBox.innerText = 'Terjadi kesalahan. Coba lagi.';
+            });
+    });
+}
+</script>
                     </div>
                 </nav>
             </div>
