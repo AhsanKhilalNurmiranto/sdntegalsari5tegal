@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                             <a href="course.html" class="nav-item nav-link">Pembelajaran</a>
-                            <a href="index.html" class="nav-item nav-link">SPMB Online</a>
+                            <a href="spmb.html"nav-item nav-link">SPMB Online</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Informasi</a>
                                 <div class="dropdown-menu rounded-0 m-0">
@@ -155,14 +155,29 @@ if(form) {
                         <img class="img-fluid" src="/online-courses-html-template/img/course-1.jpg" alt="">
                         <div class="bg-secondary p-4">
                             <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>In Class</small>
-                            </div>
-                            <a class="h5" href="">Web design & development courses for beginner</a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
-                                    <h5 class="m-0">$99</h5>
+                                <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>Di Kelas</small>
                                 </div>
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="googleSheetModal" tabindex="-1" role="dialog" aria-labelledby="googleSheetModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-lg" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="googleSheetModalLabel">Data Penghubung Siswa</h5>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSXJxqXPdZjlaC_EyX-G-Ys3g5xrDqxfP5O-vo-pX5ly9h6TIGw6tAI5EL_3asW1aiitvgOwsIrpvZ3/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="500" frameborder="0" style="border:0;"></iframe>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                            <a class="h5" href="">Data Penghubung Siswa</a>
+                            <div class="border-top mt-4 pt-4">
+                            <button type="button" class="btn btn-sm btn-primary ml-2" data-toggle="modal" data-target="#googleSheetModal">
+                                        Lihat Data
+                                    </button>
                             </div>
                         </div>
                     </div>
@@ -172,14 +187,11 @@ if(form) {
                         <img class="img-fluid" src="/online-courses-html-template/img/course-2.jpg" alt="">
                         <div class="bg-secondary p-4">
                             <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>Home</small>
+                                <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>Di Kelas</small>
                             </div>
-                            <a class="h5" href="">Web design & development courses for beginner</a>
+                            <a class="h5" href="#" data-toggle="modal" data-target="#galleryModal">Karya dan Dokumentasi Siswa</a>
                             <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
-                                    <h5 class="m-0">$99</h5>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
