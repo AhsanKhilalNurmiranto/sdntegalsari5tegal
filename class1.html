@@ -175,9 +175,48 @@ if(form) {
                                                         </div>
                             <a class="h5" href="">Data Penghubung Siswa</a>
                             <div class="border-top mt-4 pt-4">
-                            <button type="button" class="btn btn-sm btn-primary ml-2" data-toggle="modal" data-target="#googleSheetModal">
+                            <button type="button" class="btn btn-sm btn-primary ml-2" data-toggle="modal" data-target="#kodeKelasModal">
                                         Lihat Data
                                     </button>
+
+                            <!-- Modal Input Kode Kelas -->
+<div class="modal fade" id="kodeKelasModal" tabindex="-1" role="dialog" aria-labelledby="kodeKelasModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="kodeKelasModalLabel">Masukkan Kode Kelas</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="password" id="inputKodeKelas" class="form-control" placeholder="Masukkan kode kelas">
+        <div id="kodeKelasAlert" class="mt-2" style="display:none;"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+        <button type="button" class="btn btn-primary" id="btnCekKodeKelas">Lihat Data</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+document.getElementById('btnCekKodeKelas').onclick = function() {
+    var kode = document.getElementById('inputKodeKelas').value.trim();
+    var alertBox = document.getElementById('kodeKelasAlert');
+    if(kode === 'kelas1') {
+        $('#kodeKelasModal').modal('hide');
+        $('#googleSheetModal').modal('show');
+        document.getElementById('inputKodeKelas').value = '';
+        alertBox.style.display = 'none';
+    } else {
+        alertBox.style.display = 'block';
+        alertBox.className = 'alert alert-danger';
+        alertBox.innerText = 'Kode salah. Silakan coba lagi.';
+    }
+};
+</script> 
+
                             </div>
                         </div>
                     </div>
