@@ -196,6 +196,61 @@ if(form) {
                         </div>
                     </div>
                 </div>
+                <!-- Tombol untuk membuka modal galeri -->
+<button class="btn btn-info mb-3" data-toggle="modal" data-target="#listGambarModal">Lihat Galeri Gambar</button>
+
+<!-- Modal List Gambar Start -->
+<div class="modal fade" id="listGambarModal" tabindex="-1" role="dialog" aria-labelledby="listGambarModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="listGambarModalLabel">Galeri Gambar Berdasarkan Judul</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="accordion" id="accordionGambar">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Judul 1
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionGambar">
+                            <div class="card-body text-center">
+                                <img src="img/gallery1.jpg" alt="Gambar 1" class="img-fluid mb-2" style="max-height:200px;">
+                                <img src="img/gallery2.jpg" alt="Gambar 2" class="img-fluid mb-2" style="max-height:200px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Judul 2
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionGambar">
+                            <div class="card-body text-center">
+                                <img src="img/gallery3.jpg" alt="Gambar 3" class="img-fluid mb-2" style="max-height:200px;">
+                                <img src="img/gallery4.jpg" alt="Gambar 4" class="img-fluid mb-2" style="max-height:200px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal List Gambar End -->
+ 
             </div>
 
 
@@ -294,6 +349,22 @@ if(form) {
                     </div>
                 </div>
             </div>
+
+            <div class="text-center mb-4">
+                <h3>Referensi Pembelajaran</h3>
+            </div>
+
+            <div class="col-md-6 col-lg-video text-center team mb-4">
+                    <div class="team-item rounded overflow-hidden mb-2">
+                        <div class="team-img position-relative">
+                        <<iframe width="630" height="375" src="https://www.youtube.com/embed/QQXMtT31idQ?si=FuU1qebUuzDrPDA-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="bg-secondary p-4">
+                            <h5>Nur Hidayati, S.Pd, M.Pd</h5>
+                            <p class="m-0">Kepala Sekolah</p>
+                        </div>
+                    </div>
+                </div>
         </div>
     </div>
     <!-- Courses End -->
