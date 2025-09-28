@@ -217,6 +217,8 @@ document.getElementById('btnCekKodeKelas').onclick = function() {
 };
 </script> 
 
+
+
                             </div>
                         </div>
                     </div>
@@ -238,51 +240,50 @@ document.getElementById('btnCekKodeKelas').onclick = function() {
                 <!-- Tombol untuk membuka modal galeri -->
 <button class="btn btn-info mb-3" data-toggle="modal" data-target="#listGambarModal">Lihat Galeri Gambar</button>
 
+
 <!-- Modal List Gambar Start -->
 <div class="modal fade" id="listGambarModal" tabindex="-1" role="dialog" aria-labelledby="listGambarModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="listGambarModalLabel">Galeri Gambar Berdasarkan Judul</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-primary text-white">
+                <h4 class="modal-title font-weight-bold" id="listGambarModalLabel"><i class="fa fa-images mr-2"></i>Galeri Kegiatan Siswa</h4>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body bg-light">
                 <div class="accordion" id="accordionGambar">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Judul 1
+                    <div class="card mb-3 border-primary">
+                        <div class="card-header bg-primary text-white" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link text-white font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Membuat Alat Peraga Sistem Pernapasan
                                 </button>
-                            </h2>
+                            </h5>
                         </div>
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionGambar">
-                            <div class="card-body text-center">
-                                <img src="img/gallery1.jpg" alt="Gambar 1" class="img-fluid mb-2" style="max-height:200px;">
-                                <img src="img/gallery2.jpg" alt="Gambar 2" class="img-fluid mb-2" style="max-height:200px;">
+                            <div class="card-body d-flex flex-wrap justify-content-center bg-white">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/3tcNoAEydEQ?si=INOLAOfCmNLDbDZC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-header" id="headingTwo">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Judul 2
+                    <div class="card mb-3 border-success">
+                        <div class="card-header bg-success text-white" id="headingTwo">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link text-white font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Ecoprint dan Karya Seni Siswa
                                 </button>
-                            </h2>
+                            </h5>
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionGambar">
-                            <div class="card-body text-center">
-                                <img src="img/gallery3.jpg" alt="Gambar 3" class="img-fluid mb-2" style="max-height:200px;">
-                                <img src="img/gallery4.jpg" alt="Gambar 4" class="img-fluid mb-2" style="max-height:200px;">
+                            <div class="card-body d-flex flex-wrap justify-content-center bg-white">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/jqJ_9XBfW2Y?si=nrhbgk--RQGtlIpz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer bg-light">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
             </div>
         </div>
@@ -493,11 +494,12 @@ document.getElementById('btnCekKodeKelas').onclick = function() {
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="galleryModalLabel">Gallery Kegiatan Siswa</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+                <div class="modal-header" style="background-color: #90ee90; color: #155724;">
+                    <h5 class="modal-title font-weight-bold" id="galleryModalLabel"><i class="fa fa-images mr-2"></i>Gallery Kegiatan Siswa</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #155724;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
       <div class="modal-body">
         <div id="galleryCarousel" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
