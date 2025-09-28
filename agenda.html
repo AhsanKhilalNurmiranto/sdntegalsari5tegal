@@ -223,22 +223,34 @@ if(form) {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('agenda-calendar');
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth',
-    events: [
-      {
-        title: 'Pendaftaran SPMB',
-        start: '2025-09-25',
-        color: '#28a745'
-      },
-      {
-        title: 'Tes Seleksi',
-        start: '2025-09-28',
-        color: '#dc3545'
-      }
-    ]
-  });
-  calendar.render();
+    var agendaEvents = [
+        {
+            title: 'Pendaftaran SPMB',
+            start: '2025-09-25',
+            color: '#28a745'
+        },
+        {
+            title: 'Tes Seleksi',
+            start: '2025-09-28',
+            color: '#dc3545'
+        }
+    ];
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        events: agendaEvents,
+        dayCellDidMount: function(arg) {
+            // Cek apakah tanggal ini ada event
+            var dateStr = arg.date.toISOString().slice(0, 10);
+            var hasEvent = agendaEvents.some(function(ev) { return ev.start === dateStr; });
+            if (hasEvent) {
+                arg.el.style.fontWeight = 'bold';
+                arg.el.style.backgroundColor = '#eaffd0'; // hijau muda
+                arg.el.style.borderRadius = '8px';
+            }
+        }
+    });
+    calendar.render();
 });
 </script>
 
