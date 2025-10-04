@@ -135,7 +135,31 @@ if(form) {
     </div>
     <!-- Navbar End -->
 
-    <div id="agenda-calendar"></div>
+        <div class="container my-5">
+            <div id="agenda-calendar"></div>
+        </div>
+
+        <!-- Modal Keterangan Agenda -->
+        <div class="modal fade" id="agendaModal" tabindex="-1" role="dialog" aria-labelledby="agendaModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-success text-white">
+                        <h5 class="modal-title" id="agendaModalLabel">Keterangan Agenda</h5>
+                        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="agendaModalBody">
+                        <!-- Keterangan agenda akan diisi via JS -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
 
 
@@ -217,42 +241,59 @@ if(form) {
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 
-    <!-- FullCalendar JS -->
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
-<!-- Script inisialisasi kalender -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var calendarEl = document.getElementById('agenda-calendar');
-    var agendaEvents = [
-        {
-            title: 'Pendaftaran SPMB',
-            start: '2025-09-25',
-            color: '#28a745'
-        },
-        {
-            title: 'Tes Seleksi',
-            start: '2025-09-28',
-            color: '#dc3545'
-        }
-    ];
+        <!-- FullCalendar JS -->
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+        <!-- Script inisialisasi kalender dengan modal agenda -->
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('agenda-calendar');
+            var agendaEvents = [
+                {
+                    title: 'Pendaftaran SPMB',
+                    start: '2025-09-25',
+                    color: '#28a745',
+                    description: 'Pendaftaran SPMB dibuka pada tanggal ini.'
+                },
+                {
+                    title: 'Tes Seleksi',
+                    start: '2025-09-28',
+                    color: '#dc3545',
+                    description: 'Tes seleksi calon siswa baru.'
+                }
+            ];
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        events: agendaEvents,
-        dayCellDidMount: function(arg) {
-            // Cek apakah tanggal ini ada event
-            var dateStr = arg.date.toISOString().slice(0, 10);
-            var hasEvent = agendaEvents.some(function(ev) { return ev.start === dateStr; });
-            if (hasEvent) {
-                arg.el.style.fontWeight = 'bold';
-                arg.el.style.backgroundColor = '#eaffd0'; // hijau muda
-                arg.el.style.borderRadius = '8px';
-            }
-        }
-    });
-    calendar.render();
-});
-</script>
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                events: agendaEvents,
+                dayCellDidMount: function(arg) {
+                    var dateStr = arg.date.toISOString().slice(0, 10);
+                    var hasEvent = agendaEvents.some(function(ev) { return ev.start === dateStr; });
+                    if (hasEvent) {
+                        arg.el.style.fontWeight = 'bold';
+                        arg.el.style.backgroundColor = '#eaffd0';
+                        arg.el.style.borderRadius = '8px';
+                        arg.el.style.cursor = 'pointer';
+                        arg.el.classList.add('agenda-bold-day');
+                    }
+                },
+                dateClick: function(info) {
+                    var dateStr = info.dateStr;
+                    var eventsOnDate = agendaEvents.filter(function(ev) { return ev.start === dateStr; });
+                    if (eventsOnDate.length > 0) {
+                        var html = '';
+                        eventsOnDate.forEach(function(ev) {
+                            html += '<div class="mb-2"><strong>' + ev.title + '</strong><br><span>' + (ev.description || '') + '</span></div>';
+                        });
+                        document.getElementById('agendaModalBody').innerHTML = html;
+                        $('#agendaModal').modal('show');
+                    }
+                }
+            });
+            calendar.render();
+        });
+        </script>
+
+    
 
 </body>
 
